@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whats_app_clone/core/images/const_images.dart';
+import 'package:whats_app_clone/core/loader.dart';
 import 'package:whats_app_clone/prsentation/chat_screen/ui/chat_screen.dart';
 import 'package:whats_app_clone/prsentation/user_list/ui/user_model/user_model.dart';
 
@@ -19,34 +20,34 @@ class _UserListState extends State<UserList> {
 
   loadList() {
     userDataList.clear();
-    List<UserDataModel> loadList = <UserDataModel>[
-      UserDataModel(
-          name: 'Abhishek',
-          image: NetworkImages.networkImage1,
-          message: "No Message yet",
-          chatMessageString: ChatMessageString.chatMessageString),
-      UserDataModel(
-          name: "Divyansh",
-          image: NetworkImages.networkImage2,
-          message: "No Message yet",
-          chatMessageString: ChatMessageString.chatMessageString),
-      UserDataModel(
-          name: "Gaurav Bhradwaj",
-          image: NetworkImages.networkImage3,
-          message: "No Message yet",
-          chatMessageString: ChatMessageString.chatMessageString)
-    ];
-    setState(() {});
-    userDataList.addAll(loadList);
+    Future.delayed(Duration(seconds: 1)).then((value) {
+      List<UserDataModel> loadList = <UserDataModel>[
+        UserDataModel(
+            name: 'Abhishek',
+            image: NetworkImages.networkImage1,
+            message: "No Message yet",
+            chatMessageString: ChatMessageString.chatMessageString),
+        UserDataModel(
+            name: "Divyansh",
+            image: NetworkImages.networkImage2,
+            message: "No Message yet",
+            chatMessageString: ChatMessageString.chatMessageString),
+        UserDataModel(
+            name: "Gaurav Bhradwaj",
+            image: NetworkImages.networkImage3,
+            message: "No Message yet",
+            chatMessageString: ChatMessageString.chatMessageString)
+      ];
+      setState(() {});
+      showLoader = false;
+      userDataList.addAll(loadList);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-
-
-      Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           userDataList.isNotEmpty

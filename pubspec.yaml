@@ -38,7 +38,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   path_provider: ^2.0.15
   intl: ^0.18.1
-  image_picker: ^1.0.2
+  image_picker: ^1.0.2 
 
 dev_dependencies:
   flutter_test:
