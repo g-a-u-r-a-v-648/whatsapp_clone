@@ -34,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> {
   bool isShowIcons = true;
   bool isShowPicker = true;
 
-  // pick Camera
+  // pick image from Camera
 
   pickImageCamera() async {
     try {
@@ -61,6 +61,8 @@ class _ChatScreenState extends State<ChatScreen> {
   // Send message
 
   sendMessage() async {
+    // This is for current time
+
     String currentTime = DateFormat("hh:mm a").format(DateTime.now());
     print(currentTime);
     message = messageController.text.trim().toString();
@@ -289,7 +291,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       textInputAction: TextInputAction.done,
                       controller: messageController,
                       maxLines: null,
-                      onChanged: (messageControlle) {
+                      onChanged: (messageControllers) {
                         if (messageController.text.trim().isEmpty) {
                           isShowIcons = true;
                           setState(() {});
